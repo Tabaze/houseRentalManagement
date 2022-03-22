@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="miniProject" Class="LocationMaisonDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\TABAZE;Initial Catalog=miniProject;User ID=sa" SettingsObjectName="House_Rental_Management.Properties.Settings" SettingsPropertyName="miniProjectConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.utilisateur" Member="utilisateur">
+    <Type Name="utilisateur">
+      <Column Name="login" Type="System.String" DbType="VarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.appartement" Member="appartement">
+    <Type Name="appartement">
+      <Column Name="idApp" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="addressApp" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="typeApp" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="prixApp" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="idProp" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="idCategorie" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="folderPath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="appartement_location" Member="location" ThisKey="idApp" OtherKey="idApp" Type="location" />
+      <Association Name="categorie_appartement" Member="categorie" ThisKey="idCategorie" OtherKey="idCategorie" Type="categorie" IsForeignKey="true" />
+      <Association Name="proprietaire_appartement" Member="proprietaire" ThisKey="idProp" OtherKey="idProp" Type="proprietaire" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.categorie" Member="categorie">
+    <Type Name="categorie">
+      <Column Name="idCategorie" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="categorie" Member="categorie1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="remarque" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="categorie_appartement" Member="appartement" ThisKey="idCategorie" OtherKey="idCategorie" Type="appartement" />
+    </Type>
+  </Table>
+  <Table Name="dbo.locataire" Member="locataire">
+    <Type Name="locataire">
+      <Column Name="idLocataire" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nomLocataire" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="telLoc" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="genreLoc" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="locataire_location" Member="location" ThisKey="idLocataire" OtherKey="idLocataire" Type="location" />
+    </Type>
+  </Table>
+  <Table Name="dbo.location" Member="location">
+    <Type Name="location">
+      <Column Name="idLocation" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idApp" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="idLocataire" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="periode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cout" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="appartement_location" Member="appartement" ThisKey="idApp" OtherKey="idApp" Type="appartement" IsForeignKey="true" />
+      <Association Name="locataire_location" Member="locataire" ThisKey="idLocataire" OtherKey="idLocataire" Type="locataire" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.proprietaire" Member="proprietaire">
+    <Type Name="proprietaire">
+      <Column Name="idProp" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nomProp" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="telProp" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="genreProp" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="proprietaire_appartement" Member="appartement" ThisKey="idProp" OtherKey="idProp" Type="appartement" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LocationMaison">
+  <DataContextMoniker Name="/LocationMaisonDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c0f7add0-27e7-4edd-8c21-f1597fa8b11b" absoluteBounds="6.75, 3.75, 2, 1.193992513020834">
+      <DataClassMoniker Name="/LocationMaisonDataContext/utilisateur" />
+      <nestedChildShapes>
+        <elementListCompartment Id="475a6cdf-a1e4-49a8-9615-d0ee902f7319" absoluteBounds="6.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eba588ae-694d-4558-9971-8bfe2203d510" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LocationMaisonDataContext/appartement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cc3dd7dc-177e-4924-8d98-2e0f96f77dd3" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e543a180-81da-4057-b4f7-8d30bf3f2b7d" absoluteBounds="0.75, 1.375, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/LocationMaisonDataContext/categorie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36b40766-62b6-4424-8872-d76782df137e" absoluteBounds="0.765, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="da4962fa-3ab8-4fe9-aeda-1f32bd6fd975" absoluteBounds="3.5, 5.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LocationMaisonDataContext/locataire" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1c02ee8-e173-4e8a-ba48-095968887e19" absoluteBounds="3.515, 5.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd3d46d6-f8e3-4e40-ae12-22b32209a1d7" absoluteBounds="6.25, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/LocationMaisonDataContext/location" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57b0e319-ace6-49df-8483-732330c995f8" absoluteBounds="6.265, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="567b5523-4ffe-492c-94ad-766469a27bf0" absoluteBounds="0.75, 5.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LocationMaisonDataContext/proprietaire" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ead83a3-86b9-4454-baae-d4ba2d793932" absoluteBounds="0.765, 5.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.06814697265625); (3.04166666666667 : 2.06814697265625 : JumpStart); (3.20833333333333 : 2.06814697265625 : JumpEnd); (3.5 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LocationMaisonDataContext/categorie/categorie_appartement" />
+      <nodes>
+        <classShapeMoniker Id="e543a180-81da-4057-b4f7-8d30bf3f2b7d" />
+        <classShapeMoniker Id="eba588ae-694d-4558-9971-8bfe2203d510" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.01044840494792); (6.25 : 2.01044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LocationMaisonDataContext/appartement/appartement_location" />
+      <nodes>
+        <classShapeMoniker Id="eba588ae-694d-4558-9971-8bfe2203d510" />
+        <classShapeMoniker Id="dd3d46d6-f8e3-4e40-ae12-22b32209a1d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.03929768880208); (6.46875 : 6.03929768880208); (6.46875 : 2.89589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LocationMaisonDataContext/locataire/locataire_location" />
+      <nodes>
+        <classShapeMoniker Id="da4962fa-3ab8-4fe9-aeda-1f32bd6fd975" />
+        <classShapeMoniker Id="dd3d46d6-f8e3-4e40-ae12-22b32209a1d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.25121330413662); (3.125 : 4.87621330413662); (3.125 : 1.44032148632813); (3.5 : 1.44032148632813)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LocationMaisonDataContext/proprietaire/proprietaire_appartement" />
+      <nodes>
+        <classShapeMoniker Id="567b5523-4ffe-492c-94ad-766469a27bf0" />
+        <classShapeMoniker Id="eba588ae-694d-4558-9971-8bfe2203d510" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
